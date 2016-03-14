@@ -1,0 +1,110 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.soasecurity</groupId>
+    <artifactId>org.soasecurity.sample.webapp.oauth2</artifactId>
+    <packaging>war</packaging>
+    <name>OpenId-Connect Sample Web App</name>
+    <version>1.0.0</version>
+    <url>http://maven.apache.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version> 
+        </dependency>
+        <dependency>
+             <groupId>com.google.gdata.wso2</groupId>
+             <artifactId>gdata-core</artifactId>
+            <version>1.0.0.wso2v1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.common.wso2</groupId>
+            <artifactId>google-collect</artifactId>
+            <version>1.0.0.wso2v2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.amber</groupId>
+            <artifactId>oauth2-client</artifactId>
+            <version>0.22.1358727-wso2v5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.amber</groupId>
+            <artifactId>oltu-oauth2-jwt</artifactId>
+            <version>0.22.1358727-wso2v5</version>
+        </dependency>
+        <dependency>
+	        <groupId>com.googlecode.json-simple</groupId>
+	        <artifactId>json-simple</artifactId>
+	        <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.10</version>
+        </dependency>
+
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>wso2-nexus</id>
+            <name>WSO2 internal Repository</name>
+            <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <packagingExcludes>
+                        WEB-INF/lib/servlet-api-2.4.jar,WEB-INF/lib/xml-apis-*.jar,WEB-INF/lib/xercesImpl-*.jar
+                    </packagingExcludes>
+                   <webResources>
+                        <resource>
+                            <directory>src/main/resources/</directory>
+                        </resource>
+                    </webResources>
+                    <warName>openidconnect</warName>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <configuration>
+                    <enableRulesSummary>false</enableRulesSummary>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

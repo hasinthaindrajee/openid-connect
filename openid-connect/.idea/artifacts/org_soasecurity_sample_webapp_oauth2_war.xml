@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="org.soasecurity.sample.webapp.oauth2:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="openidconnect.war">
+      <element id="artifact" artifact-name="org.soasecurity.sample.webapp.oauth2:war exploded" />
+    </root>
+  </artifact>
+</component>
